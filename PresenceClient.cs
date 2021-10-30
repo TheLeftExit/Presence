@@ -22,13 +22,38 @@ namespace TheLeftExit.Presence {
         }
 
         public bool SafeInitialize() => client.IsInitialized || client.Initialize();
+        public void SafeDeinitialize() {
+            if (client.IsInitialized)
+                client.Deinitialize();
+        }
 
-        public void Update(string newStatus, string newDetails) {
+        public void Update(string solutionName, string fileName) {
             if (!SafeInitialize())
                 return;
-            client.UpdateState(newStatus);
-            client.UpdateDetails(newDetails);
-            client.UpdateStartTime();
+
+            PresenceSettings settings = PresenceSettings.Default;
+            if (settings.Enabled) {
+                if (!SafeInitialize())
+                    return;
+                RichPresence presence = new RichPresence() {
+                    Assets = new Assets {
+                        LargeImageKey = "visual-studio",
+                        LargeImageText = "Visual Studio"
+                    }
+                };
+                if (PresenceSettings.Default.SecretMode) {
+                    presence.Details = settings.SecretModeMessage;
+                } else {
+                    if (settings.ShowSolution)
+                        presence.Details = string.Format(settings.SolutionFormat, solutionName);
+                    if (settings.ShowFile)
+                        presence.Details = string.Format(settings.FileFormat, fileName);
+                    if (settings.ShowTimestamp)
+                        presence.Timestamps.Start = DateTime.Now;
+                }
+                client.SetPresence(presence);
+            } else
+                SafeDeinitialize();
         }
 
         public void Dispose() {

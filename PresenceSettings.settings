@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TheLeftExit.Presence" GeneratedClassName="PresenceSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Enabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecretMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowSolution" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecretModeMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">I'm working on something you're not allowed to know about, sorry.</Value>
+    </Setting>
+    <Setting Name="SolutionFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Developing {0}</Value>
+    </Setting>
+    <Setting Name="FileFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{0}</Value>
+    </Setting>
+    <Setting Name="ShowTimestamp" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
